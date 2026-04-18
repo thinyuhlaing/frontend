@@ -1,0 +1,169 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+/* Custom global styles here if needed */
+
+@import "tailwindcss";
+
+:root {
+  --primary: #ff7e33;
+  --text: black;
+  --bg: white;
+
+  --card: #121821;
+  --muted: #9da9b7;
+  --accent: #4cc2ff;
+}
+
+/* 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+/* @theme inline {
+  --color-primary: var(--primary);
+  --color-text: var(--text);
+  --color-bg: var(--bg);
+} */
+body {
+  background: var(--background);
+  /* color: var(--foreground); */
+  font-family: Arial, Helvetica, sans-serif;
+  @apply h-screen  flex flex-col;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* a {
+  color: var(--text);
+  text-decoration: none;
+} */
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.nav {
+  display: flex;
+  gap: 12px;
+  padding: 12px 24px;
+  /* border-bottom: 1px solid #1e2633; */
+  /* background: #0e141c; */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav a {
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+.nav a:hover {
+  background: white;
+}
+
+.badge {
+  padding: 2px 8px;
+  background: #1a2432;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid #1e2633;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+}
+
+.h1 {
+  font-size: 28px;
+  margin: 0 0 16px;
+}
+
+.mono {
+  color: var(--muted);
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th,
+.table td {
+  border-bottom: 1px solid #1e2633;
+  padding: 10px;
+  text-align: left;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid #2b3648;
+  border-radius: 12px;
+  background: #121821;
+  cursor: pointer;
+}
+.button:hover {
+  background: #182131;
+}
+
+.input {
+  width: 100%;
+  padding: 8px 10px;
+  background: #0e141c;
+  color: var(--text);
+  border: 1px solid #2a3342;
+  border-radius: 10px;
+}
+
+/* @import "tailwindcss"; */
+/* 
+.test_css {
+  background-color: blue;
+} */
+
+.status-tag {
+  @apply px-2 py-1 text-xs font-semibold rounded;
+}
+
+.success {
+  @apply bg-green-100 text-green-700;
+}
+
+.warning {
+  @apply bg-yellow-100 text-yellow-700;
+}
+
+.danger {
+  @apply bg-red-100 text-red-700;
+}

@@ -19,7 +19,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*", "./*"],
+      "@/registry": ["./src/lib/registry"],
+      "@/modules/*": ["./src/modules/*"]  
     }
   },
   "include": [
