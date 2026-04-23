@@ -19,6 +19,15 @@ async function resolveHandler(
 
   const folder = module.id;
 
+  if (segments.length === 0) {
+    const directPath = `@/modules/${folder}/api/route`;
+    try {
+      const routeModule = await import(directPath);
+      const handler = routeModule[method] || routeModule.default?.[method];
+      if (typeof handler === "function") return handler;
+    } catch {}
+  }
+
   // 1️⃣ Try exact match first
   let routePath = `@/modules/${folder}/api/${segments.join("/")}/route`;
 
