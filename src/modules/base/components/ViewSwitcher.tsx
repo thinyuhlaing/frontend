@@ -1,34 +1,25 @@
 "use client";
 
+import KanbanView from "@/modules/base/components/KanbanView";
+import TableListView from "@/modules/base/components/TableListView";
 import { faBars, faTableColumns } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 
 interface ViewSwitcherProps {
-  ListViewComponent: React.ComponentType<any>;
   listViewProps: Record<string, any>;
   KanbanViewComponent: React.ComponentType<any>;
   kanbanViewProps: Record<string, any>;
-
-  items?: any[];
-  CardComponent?: React.ComponentType<any>;
-  cardProps?: Record<string, any>;
 }
 
 export default function ViewSwitcher({
-  ListViewComponent,
   listViewProps = {},
   KanbanViewComponent,
   kanbanViewProps,
-
-  items,
-  CardComponent,
-  cardProps = {},
 }: ViewSwitcherProps) {
   const [view, setView] = useState<"list" | "kanban">("list");
   const [isMobile, setIsMobile] = useState(false);
 
-  // Detect screen size
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1024);
@@ -48,11 +39,10 @@ export default function ViewSwitcher({
           <div className="relative group">
             <FontAwesomeIcon
               icon={faBars}
-              className={` text-black p-2 cursor-pointer border ${
-                view === "list"
-                  ? "bg-(--primary)/20 border-(--primary)/50 "
-                  : "bg-gray-200 border-white"
-              }`}
+              className={` text-black p-2 cursor-pointer border ${view === "list"
+                ? "bg-(--primary)/20 border-(--primary)/50 "
+                : "bg-gray-200 border-white"
+                }`}
               onClick={() => setView("list")}
             />
             <span
@@ -67,11 +57,10 @@ export default function ViewSwitcher({
           <div className="relative group">
             <FontAwesomeIcon
               icon={faTableColumns}
-              className={` text-black p-2 cursor-pointer border ${
-                view === "kanban"
-                  ? "bg-(--primary)/20 border-(--primary)/50 "
-                  : "bg-gray-200 border-white"
-              }`}
+              className={` text-black p-2 cursor-pointer border ${view === "kanban"
+                ? "bg-(--primary)/20 border-(--primary)/50 "
+                : "bg-gray-200 border-white"
+                }`}
               onClick={() => setView("kanban")}
             />
             <span
@@ -87,9 +76,9 @@ export default function ViewSwitcher({
 
       {/* Views */}
       {currentView === "list" ? (
-        <ListViewComponent {...listViewProps} />
+        <TableListView columns={listViewProps.columns} rows={listViewProps.rows} />
       ) : (
-        <KanbanViewComponent {...kanbanViewProps} />
+        <KanbanView CardComponent={KanbanViewComponent} items={kanbanViewProps.items} />
       )}
     </>
   );

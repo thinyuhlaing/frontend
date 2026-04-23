@@ -5,7 +5,7 @@ interface Props {
   rows: any[];
 }
 
-export default function TableListView({ columns, rows }: Props) {
+export default function ListView({ columns, rows }: Props) {
   return (
     <div className="bg-white  rounded-2xl shadow-lg   p-4 md:p-6">
       {/* For desktop */}
@@ -24,9 +24,8 @@ export default function TableListView({ columns, rows }: Props) {
             {rows.map((items, rowIndex) => (
               <tr
                 key={rowIndex}
-                className={`transition-all duration-200 ${
-                  rowIndex % 2 === 0 ? "bg-gray-50" : "bg-white"
-                } hover:bg-(--primary)/10 cursor-pointer`}
+                className={`transition-all duration-200 ${rowIndex % 2 === 0 ? "bg-gray-50" : "bg-white"
+                  } hover:bg-(--primary)/10 cursor-pointer`}
               >
                 {items.map((item: any, colIndex: number) => (
                   <td key={colIndex} className="px-6 py-4 whitespace-nowrap">

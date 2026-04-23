@@ -3,8 +3,6 @@ import { Dispatch, SetStateAction } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGear, faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
 import ProfileMenu from "@/modules/base/components/ProfileMenu";
-import { internal_user } from "../utils/test";
-import { UserInfo } from "../types";
 import { useAuth } from "../hooks/useAuth";
 interface Props {
   isSidebarOpen?: boolean;
